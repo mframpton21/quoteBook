@@ -7,6 +7,13 @@ app.controller('mainCtrl', function($scope, dataService){
     	$scope.quotes = dataService.getData();
   	}
 
-  	$scope.getData();
+	$scope.addData = function(obj) {
+    	dataService.addData(obj);
+  	}
 
+  	$scope.removeData = function(string) {
+    	dataService.removeData(string);
+  	}
+
+  	$scope.getData();
 });

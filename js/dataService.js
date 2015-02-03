@@ -16,17 +16,19 @@ app.service('dataService', function() {
   	};
 
   	this.addData = function(obj) {
+      alert("In addData - " + obj);
   		if (obj.hasOwnProperty("text") && obj.hasOwnProperty("author")) {
     		quotes.push(obj);
     	}
   	};
 
   	this.removeData = function(string) {
-  		alert("here");
-  		// for (var i = 0; i < quotes.length; i++) {
-  		// 	if (quotes[i].text === string) {
-    // 			quotes.splice(i, 1);
-  		// 	}
-  		// }
+  		alert("In removeData - " + string);
+  		for (var i = 0; i < quotes.length; i++) {
+
+  			if (quotes[i].text === string) {
+    			quotes.splice(i, 1);
+  			}
+  		}
   	};
  });

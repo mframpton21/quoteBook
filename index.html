@@ -15,9 +15,15 @@
 			<p>{{quote.text}} - {{quote.author}}</p>
 		</div>
 		<div>
-			<button ng-click="quotes.AddData">Add Quote</button>
+			Action
+	      	<select ng-model="action">
+		        <option value="add">Add Quote</option>
+	        	<option value="remove">Remove Quote</option>
+	      	</select>	
 
-    		<button ng-click="quotes.removeData">Remove Quote</button>
+			<input ng-model="quoteInput" ng-show="action === 'add' || action === 'remove'"></input>
+			<button ng-click="addData({text: quoteInput, author: 'unknown'})" ng-show="action === 'add'">Submit Add</button>
+    		<button ng-click="removeData(quoteInput)" ng-show="action === 'remove'">Submit Remove</button>
 		</div>
 
 		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
