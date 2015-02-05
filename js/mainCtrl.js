@@ -6,17 +6,24 @@ app.controller('mainCtrl', function($scope, dataService, $cookieStore){
 
 	$scope.getData = function() {
     $scope.quotes = $cookieStore.get('quotes');
+  };
 
-  }$scope.addData = function(obj) {
-    $scope.quotes = $cookieStore.put('quotes', obj);
-  }
+  $scope.addData = function(obj) {
+    $cookieStore.remove('quotes');
+    $cookieStore.put('quotes', obj);
+    $scope.getData();
+
+  };
 
   $scope.removeData = function(string) {
-    $scope.quotes = $cookieStore.remove('quotes');
-  }
+    $cookieStore.remove('quotes');
+    $scope.getData();
+  };
 
-  //$scope.getData();
-  $scope.quotes = $cookieStore.put('quotes', dataService.getData());
+  //console.log(dataService.getData());
+  $cookieStore.put('quotes', dataService.getData());
+  $scope.getData();
+  console.log($scope.quotes);
 
 });
 

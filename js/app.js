@@ -1,2 +1,2 @@
-var app = angular.module('quoteBook', ['ngCookie']);
+var app = angular.module('quoteBook', ['ngCookies']);
 
